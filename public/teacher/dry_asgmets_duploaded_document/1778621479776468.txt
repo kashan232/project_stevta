@@ -1,0 +1,26 @@
+Main Super Admin Login Access
+Route = Super-admin-login
+Username = Kashan232
+password = 1234
+
+Admin Login Access
+route = Insitute-login
+Username = stevta1
+password = 123
+
+Campus Login Access
+route = campus-login
+Username = campus-hyderabad1
+password = 123
+
+Teacher Login Access
+Route = teacher-login
+email = aim@gmail.com
+password = 123
+
+Student Login Access
+Route = student-login
+email = aim@gmail.com
+password = 123
+
+attendance-01.png

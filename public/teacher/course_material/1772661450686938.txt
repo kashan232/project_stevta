@@ -1,0 +1,8 @@
+1.composer require intervention/image
+this line add into controller
+2.// import the Intervention Image Manager 
+use Intervention\Image\ImageManagerStatic as Image;
+3.Intervention\Image\ImageServiceProvider::class -> add in config file app.php in providers
+4.'Image' => Intervention\Image\Facades\Image::class ->add this is alieses
+5.php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent" ->paste this line into cmd
+

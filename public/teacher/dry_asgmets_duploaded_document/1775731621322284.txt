@@ -1,0 +1,24 @@
+1.composer require intervention/image = terminal
+this line add into controller
+2.// import the Intervention Image Manager 
+use Intervention\Image\ImageManagerStatic as Image;
+3.Intervention\Image\ImageServiceProvider::class -> add in config file app.php in providers
+4.'Image' => Intervention\Image\Facades\Image::class ->add this is alieses
+5.php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent" ->paste this line into cmd
+
+
+
+
+
+$birth_certificate_img_for_db = "";
+        $birth_certificate_img = $request->file('birth_certificate_img');
+        if ($birth_certificate_img != null) {
+            $name_generate = hexdec(uniqid());
+            $image_extension = strtolower($birth_certificate_img->getClientOriginalExtension());
+            $image_name =   $name_generate . "." . $image_extension;
+
+            $upload_location = 'campus/general_operations/birth_certificates/';
+            $last_image_name = $upload_location . $image_name;
+            $birth_certificate_img_for_db = $image_name;
+            Image::make($birth_certificate_img)->resize(500, 500)->save($last_image_name);
+        }
