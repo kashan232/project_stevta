@@ -1,149 +1,179 @@
-@include('institute_admin_panel.dashboard.include.header')
-
-
-<!-- Preloader Start Here -->
-<div id="preloader"></div>
-
-<!-- Preloader End Here -->
-<div id="wrapper" class="wrapper bg-ash">
-  <!-- Header Menu Area Start Here -->
-  @include('institute_admin_panel.dashboard.include.navbar')
-  <!-- Header Menu Area End Here -->
-  <!-- Page Area Start Here -->
-  <div class="dashboard-page-one">
-    <!-- Sidebar Area Start Here -->
-    @include('institute_admin_panel.dashboard.include.sidebar')
-    <!-- Sidebar Area End Here -->
-    <div class="dashboard-content-one">
-      <!-- Breadcubs Area Start Here -->
-      <div class="breadcrumbs-area">
-        <h3>Institute Dashboard </h3>
-        <ul>
-          <li>
-            <a href="/main_assets/home.html">Home</a>
-          </li>
-          <li>Admin</li>
-        </ul>
-      </div>
-      <!-- Breadcubs Area End Here -->
-      <!-- Dashboard summery Start Here -->
-
-      <!-- Dashboard summery End Here -->
-      <!-- Dashboard Content Start Here -->
-
-      <!-- Dashboard Content End Here -->
-      <!-- Social Media Start Here -->
-
-      <!-- Social Media End Here -->
-      <!-- form   -->
-      <div class="card height-auto">
-        <div class="card-body">
-
-          @if(session('added-message-Institute'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Congratulations!</strong> {{ session('added-message-Institute') }}.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+@include('institute_admin_panel.dashboard.inst_include.header')
+<!--**********************************
+        Main wrapper start
+    ***********************************-->
+<div id="main-wrapper">
+  <!--**********************************
+            Nav header start
+        ***********************************-->
+  @include('institute_admin_panel.dashboard.inst_include.navbar')
+  <!--**********************************
+            Nav header end
+        ***********************************-->
+  <!--**********************************
+            Header start
+        ***********************************-->
+  @include('institute_admin_panel.dashboard.inst_include.topbar')
+  <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+  <!--**********************************
+            Sidebar start
+        ***********************************-->
+  @include('institute_admin_panel.dashboard.inst_include.sidebar')
+  <!--**********************************
+            Sidebar end
+        ***********************************-->
+  <!--**********************************
+            Content body start
+        ***********************************-->
+  <div class="content-body">
+    <!-- row -->
+    <div class="container-fluid">
+      <div class="row page-titles mx-0">
+        <div class="col-sm-6 p-md-0">
+          <div class="welcome-text">
+            <h4>Campus Creation </h4>
           </div>
-          @endif
-
-          <div class="heading-layout1">
-            <div class="item-title">
-              <h3>{{$pagename}}</h3>
-            </div>
-            <div class="dropdown">
-              <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
-
-              <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
-                <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
-                <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
-              </div>
-            </div>
-          </div>
-          <!-- form   -->
-          <form class="new-added-form" action="{{ route('store-campus') }}" method="POST">
-            @csrf
-
-            @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-              </ul>
-            </div>
-            @endif
-
-            <div class="row">
-
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <label>Campus Name *</label>
-                <input type="text" name="campus_name" id="campus_name" placeholder="Campus Name" required class="form-control" />
-                <span class="text-danger error-message" id="error-campus_name"></span>
-
-              </div>
-
-
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <label>Campus Address*</label>
-                <input type="text" name="campus_address" id="campus_address" required placeholder="Campus Address" class="form-control" />
-                <span class="text-danger error-message" id="error-campus_address"></span>
-
-              </div>
-
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <label>Campus Phone *</label>
-                <input type="phone" name="campus_phone" id="campus_phone" required placeholder="Campus Phone" class="form-control" />
-                <span class="text-danger error-message" id="error-campus_phone"></span>
-
-              </div>
-
-
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <label>Campus Website *</label>
-                <input type="text" name="campus_website" id="campus_website" placeholder="Campus Website" class="form-control" />
-                <span class="text-danger error-message" id="error-campus_website"></span>
-
-              </div>
-
-
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <label>Campus Email *</label>
-                <input type="email" name="campus_email" id="campus_email" required placeholder="Campus Email" class="form-control" />
-                <span class="text-danger error-message" id="error-campus_email"></span>
-
-              </div>
-
-
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <label>Campus Password *</label>
-                <input type="password" name="campus_password" id="campus_password" required placeholder="Campus Password" class="form-control" />
-                <span class="text-danger error-message" id="error-campus_password"></span>
-
-
-              </div>
-              
-              <div class="col-12 form-group mg-t-8">
-                <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">
-                  Save
-                </button>
-              </div>
-
-            </div>
-          </form>
-          <!-- form end  -->
-
+        </div>
+        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('all-courses') }}">All Campus</a></li>
+          </ol>
         </div>
       </div>
-      <!-- form   -->
+
+      <div class="row">
+        <div class="col-xl-12 col-xxl-12 col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              @if(session('added-message-Institute'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congratulations!</strong> {{ session('added-message-Institute') }}.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              @endif
+              <form class="new-added-form" action="{{ route('store-campus') }}" method="POST">
+                @csrf
+                @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+                @endif
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2 mb-2">
+                    <div class="form-group">
+                      <label>Campus Name *</label>
+                      <input type="text" name="campus_name" id="campus_name" placeholder="Campus Name" required class="form-control" />
+                      <span class="text-danger error-message" id="error-campus_name"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2 mb-2">
+                    <div class="form-group">
+                      <label>Campus Address*</label>
+                      <input type="text" name="campus_address" id="campus_address" required placeholder="Campus Address" class="form-control" />
+                      <span class="text-danger error-message" id="error-campus_address"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2 mb-2">
+                    <div class="form-group">
+                      <label>Campus Phone *</label>
+                      <input type="phone" name="campus_phone" id="campus_phone" required placeholder="Campus Phone" class="form-control" />
+                      <span class="text-danger error-message" id="error-campus_phone"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2 mb-2">
+                    <div class="form-group">
+                      <label>Campus Website *</label>
+                      <input type="text" name="campus_website" id="campus_website" placeholder="Campus Website" class="form-control" />
+                      <span class="text-danger error-message" id="error-campus_website"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2 mb-2">
+                    <div class="form-group">
+                      <label>Campus Email *</label>
+                      <input type="email" name="campus_email" id="campus_email" required placeholder="Campus Email" class="form-control" />
+                      <span class="text-danger error-message" id="error-campus_email"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2 mb-2">
+                    <div class="form-group">
+                      <label>Campus Password *</label>
+                      <input type="password" name="campus_password" id="campus_password" required placeholder="Campus Password" class="form-control" />
+                      <span class="text-danger error-message" id="error-campus_password"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-dark">Cencel</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- Page Area End Here -->
+  <!--**********************************
+            Content body end
+        ***********************************-->
+  <!--**********************************
+            Footer start
+        ***********************************-->
+  @include('institute_admin_panel.dashboard.inst_include.poweredby')
+  <!--**********************************
+            Footer end
+        ***********************************-->
+
+  <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+  <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
 </div>
-@include('institute_admin_panel.dashboard.include.footer')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+<!--**********************************
+        Scripts
+    ***********************************-->
+@include('institute_admin_panel.dashboard.inst_include.footer')
+
+<script>
+  function validateInput() {
+    const inputElement = document.getElementById('class_name');
+    const errorElement = document.getElementById('error-class_name');
+
+    // Regular expression to match input starting with alphabetic characters followed by optional integers
+    const regex = /^[A-Za-z]+[0-9]*$/;
+
+    if (regex.test(inputElement.value)) {
+      // Input matches the pattern, clear the error message
+      errorElement.textContent = "";
+    } else {
+      // Input does not match the pattern, show an error message
+      errorElement.textContent = "Please start with alphabetic characters followed by optional integers.";
+      // You may also choose to revert the input to a valid state if needed.
+    }
+  }
+</script>
+
+</body>
+
+</html>
