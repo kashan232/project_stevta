@@ -66,6 +66,7 @@ use Illuminate\Support\Facades\Route;
 |
 */  
 // Push by kashan
+// Push by Javed Ahmed Memon
 // Route::get('/', function () {
 //     return view('welcome'); 
 // });
@@ -73,6 +74,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('institute_admin_panel.dashboard.index'); 
 // });
+
+Route::get('/', function () {
+    return redirect('/Super-admin-login'); 
+});
   
 Route::get('/Super-admin-login', [MainSuperAdminController::class, 'Super_admin_login'])->name('Super-admin-login');
 Route::post('/super-admin-logged', [MainSuperAdminController::class, 'super_admin_logged'])->name('super-admin-logged');
