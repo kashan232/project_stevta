@@ -1,0 +1,11 @@
+Super-admin-login
+admin
+1234
+
+Insitute-login
+stevta1
+123
+
+campus-login
+campus-hyderabad1
+123
