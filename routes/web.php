@@ -69,6 +69,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome'); 
 // });
+// Push by Asif Zaman
+// Route::get('/', function () {
+//     return view('welcome'); 
+// });
 
 // Route::get('/', function () {
 //     return view('institute_admin_panel.dashboard.index'); 
